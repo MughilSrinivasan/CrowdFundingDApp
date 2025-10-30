@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+:root {
+  --bg: linear-gradient(135deg, #dbeafe 0%, #e9d5ff 50%, #f5f3ff 100%);
+  --card-bg: #ffffff;
+  --primary: #2f9aff;
+  --text: #000000;
+  --muted: #000000;
+  --border: #e5e7eb;
+  --radius: 15px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(
+  135deg,
+  #93c5fd,
+  #a5b4fc,
+  #c4b5fd,
+  #d8b4fe,
+  #e879f9,
+  #c084fc
+);
+  background-size: 400% 400%;
+  animation: darkShift 25s ease infinite;
+}
+
+@keyframes darkShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  10% {
+    background-position: 20% 70%;
+  }
+  20% {
+    background-position: 40% 30%;
+  }
+  30% {
+    background-position: 60% 80%;
+  }
+  40% {
+    background-position: 80% 40%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  60% {
+    background-position: 80% 60%;
+  }
+  70% {
+    background-position: 60% 20%;
+  }
+  80% {
+    background-position: 40% 60%;
+  }
+  90% {
+    background-position: 20% 40%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app-header {
+  text-align: center;
+  padding: 1em;
+  background: linear-gradient(90deg, rgba(173, 216, 255, 0.3), rgba(255, 255, 255, 0.4));
+  backdrop-filter: blur(15px) saturate(160%);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-family: "Anta", sans-serif;
+}
+
+.app-header h1 {
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+.connected {
+  color: var(--muted);
+  font-size:1rem;
+  font-family: monospace;
+}
+
+.connected-addr {
+  color: #005edc;
+  font-weight: 700;
+}
+
+.form-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 25px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.campaigns-section-active {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+
+  background: rgba(58, 255, 18, 0.452);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 25px rgba(58, 255, 18, 0.5);
+  border: 1px solid rgba(26, 155, 0, 0.25);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.campaigns-section-completed {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+
+  background: rgba(0, 128, 255, 0.35);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 25px rgba(0, 128, 255, 0.5);
+  border: 1px solid rgba(0, 128, 255, 0.25);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.campaigns-section-cancelled {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+
+  background: rgba(255, 64, 64, 0.35);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 25px rgba(255, 64, 64, 0.5);
+  border: 1px solid rgba(255, 64, 64, 0.25);
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.form-section h3,
+.campaigns-section-active h3,
+.campaigns-section-completed h3,
+.campaigns-section-cancelled h3 {
+  margin-bottom: 1.5rem;
+  margin-top: -0.5rem;
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: "Cascadia Mono", sans-serif;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formlabels {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-bottom: -0.7rem;
+}
+
+input,
+textarea {
+  padding: 0.8rem;
+  border: 2.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(100%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  color: var(--text);
+
+  transition: border 0.2s, background 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.3);
+}
+
+.primary-btn {
+  margin-top: 2rem;
+  padding: 0.9rem 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: #add0ff;
+  color: #1075fa;
+}
+
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.campaign-card {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+
+.campaign-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.campaign-card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.campaign-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.details {
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.actions input {
+  flex: 1;
+}
+
+.actions button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.actions button:hover {
+  background-color: #005edc;
+}
+
+.rate-section {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.star {
+  font-size: 1.3rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star.active,
+.star:hover {
+  color: #ffbf00;
+}
+
+.rate-section button {
+  background-color: #f8f9fb;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rate-section button:hover {
+  background-color: #f0f4f8;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--muted);
+  padding: 1rem;
+  font-style: italic;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  margin: 0 0.5rem;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-buttons button:first-child {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.modal-buttons button:last-child {
+  background-color: #f3f4f6;
+}
+
+.modal input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  outline: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.actions button {
+  background: var(--primary);
+  color: white;
+}
+
+.actions button:hover {
+  background: var(--primary-hover);
+}
+
+.cancel {
+  background: #fee2e2;
+  color: #b91c1c;
+  width: 100%;
+  margin-top: 0.8rem;
+}
+
+.cancel:hover {
+  background: #fecaca;
+}
+
+.refund-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  width: 100%;
+  margin-top: 0.8rem;
+}
+
+.refund-btn:hover {
+  background: #bae6fd;
+}
+
+.withdraw-btn {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  width: 100%;
+  margin-top: 0.8rem;
+}
+
+.withdraw-btn:hover {
+  background: #bbf7d0;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.star {
+  font-size: 2rem;
+  color: #f5ff64c2;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.15s ease, text-shadow 0.25s ease;
+}
+
+.star:hover {
+  transform: scale(1.15);
+}
+
+.star.active {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.edit-icon {
+  cursor: pointer;
+}
